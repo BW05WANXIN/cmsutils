@@ -3,11 +3,18 @@
  */
 package com.bw.wanxin;
 
+import java.io.File;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
 /**
  * @author 926474
  *
  */
 public class FileUtils {
+	
+	public static Logger logger=Logger.getLogger(FileUtils.class);
 	
 	
 	
@@ -27,5 +34,45 @@ public class FileUtils {
 		
 		//return fileName.substring(fileName.lastIndexOf('.'));
 	}
+	
+	
+	/**
+	 * 删除文件 若有目录则删除子目录中所有文件
+	 * 使用递归删除
+	 * @param path
+	 */
+	public static void delFilePath(String fileName) {
+		File file = new File(fileName);
+		if (!file.exists()) {
+			return;// 不存在直接返回
+		}
+		if(file.isFile()) {
+			// 是文件直接删除再返回
+			file.delete();
+			return;
+		}
+		if (file.isDirectory()) {
+			// 是目录 遍历
+			String[] list = file.list();
+			for (String subPath : list) {
+				System.out.println(subPath);
+				// 得到子文件路径
+				// 调用删除功能
+				delFilePath(fileName+"\\"+subPath);
+			}
+			file.delete();
+		}
+		logger.info(fileName);
+	}
+	
+	
+	/**
+	 * 获取系统属性
+	 */
+	public static String getSystemProperty(String key) {
+		String property = System.getProperty(key);
+		return property;
+	}
+	
 
 }
