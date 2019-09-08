@@ -14,6 +14,21 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 	
+	
+	/**
+	 * 
+	 * @param src
+	 * @return
+	 */
+	public static String toHtml(String src) {
+		String [] strings=src.split("\\\\n");
+		StringBuilder sb=new StringBuilder();
+		for (String string : strings) {
+			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+	}
+	
 	/**
 	 * 判空
 	 * @param str
