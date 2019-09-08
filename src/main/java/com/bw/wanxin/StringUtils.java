@@ -140,6 +140,48 @@ public class StringUtils {
 	
 	
 	
+	/**
+	 * 根据正则在字符串提取一段值，用于后面在url地址里提取ID值。
+	 * 例如在“http://news.cnstock.com/news,yw-201908-4413224.htm”把“4413224”提取出来。
+	 * @param str
+	 * @param regex
+	 * @return
+	 */
+	public static String getPlaceholderValue(String str,String regex) {
+		Pattern pattern = Pattern.compile(regex); // 匹配的模式
+		Matcher m = pattern.matcher(str);
+		boolean find = m.find();
+		if (find) {
+			String group = m.group(0);
+			return group.substring(1, group.lastIndexOf('.'));
+		}
+		return "";
+	}
+	
+	
+	/**
+	 * 测试工具包中isNumber（）
+	 * @param src
+	 * @return
+	 */
+	public static boolean isNumber(String src) {
+		String regix="[0-9] {1,}(\\.?|[0-9]*)";
+		return src.matches(regix);
+	}
+	
+	
+	
+	/**
+	 * 测试工具中hasText（），该方法是过滤String参数空格后判断是否有值，
+	 * 如果你有该功能方法，但不是这个方法名不扣分。如果没有该方法，必须现在编写该方法
+	 * @param src
+	 * @return
+	 */
+	public static boolean hasText(String src) {
+		String all = src.replaceAll("\\s", "");
+		return (!"".equals(all));
+	}
+	
 	
 
 }
