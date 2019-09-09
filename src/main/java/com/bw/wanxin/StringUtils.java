@@ -23,8 +23,8 @@ public class StringUtils {
 	 * @return
 	 */
 	public static String toHtml(String text){
-		text.replace("\\\n\\\r", "\\\n");
-		text.replace("\\\r", "<br/>");
+		text.replace("\\n\\r", "\\n");
+		text.replace("\\r", "<br/>");
 		String []strings = text.split("\\\n");
 		StringBuilder sb=new StringBuilder();
 		for (String string : strings) {
