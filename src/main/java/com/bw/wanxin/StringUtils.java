@@ -8,6 +8,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.Test;
+
 /**
  * @author 926474
  *
@@ -16,11 +18,33 @@ public class StringUtils {
 	
 	
 	/**
+	 * 3.	在自工具包工程StringUtil工具类中完成toHtml(String text)工具方法 (16分)
+	 * @param text
+	 * @return
+	 */
+	public static String toHtml(String text){
+		text.replace("\\\n\\\r", "\\\n");
+		text.replace("\\\r", "<br/>");
+		String []strings = text.split("\\\n");
+		StringBuilder sb=new StringBuilder();
+		for (String string : strings) {
+			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+	}
+
+	
+	
+	
+	
+	
+	
+	/**
 	 * 
 	 * @param src
 	 * @return
 	 */
-	public static String toHtml(String src) {
+	public static String toHtml1(String src) {
 		String [] strings=src.split("\\\n");
 		StringBuilder sb=new StringBuilder();
 		for (String string : strings) {
