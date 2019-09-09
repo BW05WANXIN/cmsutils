@@ -16,6 +16,13 @@ import com.bw.wanxin.StringUtils;
 public class TestStringUtils {
 	
 	
+	@Test
+	public void testToHtml2() {
+		String string = StringUtils.toHtml2("是黄齑淡饭很快就\n\r参加活动就大声\r不好的事在今后的");
+		System.out.println(string);
+	}
+	
+	
 	/**
 	 * (1)	测试StringUtil工具类中toHtml()方法，传一段文本进去，输出带html标签的文本。（4分）
 	 */
@@ -28,7 +35,7 @@ public class TestStringUtils {
 				"(4)	方法不报错，返回正确结果。（4分）\r\n" + 
 				"(5)	该方法必须是在自己的工具包工程中，且在StringUtil工具中。（2分）\r\n" + 
 				"\r\n";
-		String html = StringUtils.toHtml(text);
+		String html = StringUtils.toHtml2(text);
 		// 输出转换后的内容
 		System.out.println(html);
 	}

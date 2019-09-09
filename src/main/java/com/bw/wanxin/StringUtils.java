@@ -24,7 +24,7 @@ public class StringUtils {
 	 */
 	public static String toHtml(String text){
 		// (1)	将\n\r替换成一个\n。（2分）
-		text.replace("\\n\\r", "\\n");
+		text.replace("\\n\\r", "\n");
 		// (3)	将单个\r字符使用<br/>标签替换。（2分）
 		text.replace("\\r", "<br/>");
 		String []strings = text.split("\\\n");
@@ -36,7 +36,16 @@ public class StringUtils {
 		return sb.toString();
 	}
 
-	
+	public static String toHtml2(String text) {
+		String all = text.replaceAll("\\\n\r", "\n");
+		all = all.replaceAll("\\\r", "<br/>");
+		String[] split = all.split("\\\n");
+		StringBuilder sb=new StringBuilder();
+		for (String string : split) {
+			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+	}
 	
 	
 	
