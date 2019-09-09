@@ -23,11 +23,14 @@ public class StringUtils {
 	 * @return
 	 */
 	public static String toHtml(String text){
+		// (1)	将\n\r替换成一个\n。（2分）
 		text.replace("\\n\\r", "\\n");
+		// (3)	将单个\r字符使用<br/>标签替换。（2分）
 		text.replace("\\r", "<br/>");
 		String []strings = text.split("\\\n");
 		StringBuilder sb=new StringBuilder();
 		for (String string : strings) {
+			// (2)	将\n结尾的这行文本用<p></p>标签包起来。（6分）
 			sb.append("<p>").append(string).append("</p>");
 		}
 		return sb.toString();
