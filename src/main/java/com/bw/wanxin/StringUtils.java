@@ -69,7 +69,7 @@ public class StringUtils {
 	 * @param str
 	 * @return
 	 */
-	public static boolean isHasValue(String str) {
+	public static boolean hasText(String str) {
 		//return (null !=str && !"".equals(str.trim()));
 		return !(null ==str || "".equals(str.trim()));
 	}
@@ -216,7 +216,7 @@ public class StringUtils {
 	 * @param src
 	 * @return
 	 */
-	public static boolean hasText(String src) {
+	public static boolean hasText1(String src) {
 		String all = src.replaceAll("\\s", "");
 		return (!"".equals(all));
 	}

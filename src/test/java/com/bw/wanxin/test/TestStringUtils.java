@@ -83,10 +83,8 @@ public class TestStringUtils {
 	
 	@Test
 	public void testIsNull() {
-		System.out.println("请输入需要测试的内容：");
-		Scanner sc=new Scanner(System.in);
-		String s=sc.next();
-		System.out.println(StringUtils.isEmpty(s));
+		boolean hstText = StringUtils.hasText(" ");
+		System.out.println("是否优质："+hstText);
 	}
 	
 	@Test
