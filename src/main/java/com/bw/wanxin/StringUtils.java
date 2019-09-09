@@ -21,7 +21,7 @@ public class StringUtils {
 	 * @return
 	 */
 	public static String toHtml(String src) {
-		String [] strings=src.split("\\\\n");
+		String [] strings=src.split("\\\n");
 		StringBuilder sb=new StringBuilder();
 		for (String string : strings) {
 			sb.append("<p>").append(string).append("</p>");
