@@ -126,12 +126,11 @@ public class FileUtils {
 	 * @throws InstantiationException 
 	 */
 	@SuppressWarnings("resource")
-	public static List fileToBean(String fileName,Class beanClass) throws IOException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static List fileToBean(String fileName,Constructor constructor) throws IOException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		File file = new File(fileName);
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 		String line = null;
 		List list = new ArrayList();
-		Constructor constructor = beanClass.getConstructor();
 		while((line = bufferedReader.readLine() )!=null) {
 			String[] split = line.split("\\|");
 			Object object = constructor.newInstance(split);
