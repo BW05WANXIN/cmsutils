@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.bw.wanxin.test;
+package com.bw.wanxin;
 
 /**
  * @author 926474
