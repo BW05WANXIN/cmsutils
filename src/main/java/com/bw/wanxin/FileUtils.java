@@ -125,7 +125,6 @@ public class FileUtils {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	@SuppressWarnings("resource")
 	public static List fileToBean(String fileName,Constructor constructor) throws IOException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		File file = new File(fileName);
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -138,6 +137,34 @@ public class FileUtils {
 		}
 		return list;
 	}
+	
+	/**
+	 * 
+	 * @param fileName
+	 * @param constructor
+	 * @return
+	 * @throws IOException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public static List fileToBean2(String fileName,Constructor constructor) throws IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		
+		File file = new File(fileName);
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+		String line=null;
+		List list=new ArrayList();
+		while((line = bufferedReader.readLine())!=null) {
+			String[] split = line.split("\\|");
+			Object object = constructor.newInstance(split);
+			list.add(object);
+		}
+		return list;
+		
+	}
+	
+	
 	
 	
 
