@@ -131,7 +131,7 @@ public class FileUtils {
 		String line = null;
 		List list = new ArrayList();
 		while((line = bufferedReader.readLine() )!=null) {
-			String[] split = line.split("\\|");
+			String[] split = line.split("||");
 			Object object = constructor.newInstance(split);
 			list.add(object);
 		}
